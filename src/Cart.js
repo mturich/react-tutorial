@@ -17,7 +17,7 @@ export default function Cart({ cart }) {
       event.preventDefault();
 
       const lineItems = cart.map(product => {
-        // override price_id 
+         // override price_id
          const customPriceId = {
             1: 'price_1LYDqQGSORg56Xuf40vkUk1E', // cheese
             2: 'price_1LYDrYGSORg56XufrwA2RJd0', // milk
@@ -32,8 +32,8 @@ export default function Cart({ cart }) {
       stripeLoadedPromise.then(stripe => {
          stripe
             .redirectToCheckout({
-               lineItems: lineItems,
                mode: 'payment',
+               lineItems,
                successUrl: 'http://localhost:3000/cart',
                cancelUrl: 'http://localhost:3000/cart',
                customerEmail: email,
