@@ -14,7 +14,7 @@
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
       "react-router": "^6.3.0",
-      "react-router-dom": "^5.2.0",
+      "react-router-dom": "^5.3.3",
       "react-scripts": "^5.0.1",
       "web-vitals": "^0.2.4"
    },
@@ -26,12 +26,11 @@
       "eslint": "^8.23.0",
       "eslint-plugin-react": "^7.31.1",
       "eslint-plugin-react-hooks": "^4.6.0",
-      "jest": "^27.5.1"
+      "jest": "^27.5.1",
+      "kcd-scripts": "^12.3.0"
    },
    "eslintConfig": {
-      "extends": [
-         "./node_modules/kcd-scripts/eslint.js"
-      ],
+      "extends": "./node_modules/kcd-scripts/eslint.js",
       "rules": {
          "import/prefer-default-export": "off",
          "jsx-a11y/label-has-for": "off",
@@ -39,7 +38,10 @@
          "import/no-unassigned-import": "off",
          "no-console": "off",
          "jsx-a11y/accessible-emoji": "off",
-         "consistent-return": "off"
+         "consistent-return": "off",
+         "react/jsx-no-leaked-render": "off",
+         "no-constant-binary-expression": "off",
+         "react/react-in-jsx-scope": "off"
       }
    },
    "eslintIgnore": [
