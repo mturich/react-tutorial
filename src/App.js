@@ -8,7 +8,7 @@ import ProductDetails from "./ProductDetails.js";
 import Cart from "./Cart.js";
 
 function App() {
-  const [cart, setCart] = useState(function () {
+  const [cart, setCart] = useState(() => {
     let savedCart = [];
     try {
       savedCart = JSON.parse(localStorage.getItem("cart")) || [];
