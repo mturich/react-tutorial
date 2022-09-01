@@ -49,7 +49,7 @@ export default function ProductDetails(props) {
               <NavLink
                 exact
                 activeClassName="tab-active"
-                to={match.url + "/nutrition"}
+                to={`${match.url}/nutrition`}
               >
                 Nutrition
               </NavLink>
@@ -58,7 +58,7 @@ export default function ProductDetails(props) {
               <NavLink
                 exact
                 activeClassName="tab-active"
-                to={match.url + "/storage"}
+                to={`${match.url}/storage`}
               >
                 Storage
               </NavLink>
@@ -73,11 +73,11 @@ export default function ProductDetails(props) {
             />
           </Route>
 
-          <Route path={match.path + "/nutrition"}>
+          <Route path={`${match.path}/nutrition`}>
             <ProductDetailNutrition nutrition={product.nutrition} />
           </Route>
 
-          <Route path={match.path + "/storage"}>
+          <Route path={`${match.path}/storage`}>
             <ProductDetailStorage storage={product.storage} />
           </Route>
         </Switch>

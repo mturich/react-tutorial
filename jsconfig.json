@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
-    "noEmit": true,
     "baseUrl": "./",
     "paths": {
-      "*": ["src/*", "test/*"]
+      "*": [
+        "src/*",
+        "test/*"
+      ]
     }
   },
-  "include": ["src", "test/*", "src/__tests__/intercepting_http.js"]
+  "include": [
+    "src",
+    "test/*",
+    "src/__tests__/intercepting_http.js"
+  ]
 }
