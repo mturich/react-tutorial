@@ -20,6 +20,7 @@ export default function ProductDetails(props) {
    useEffect(() => {
       get(`productinfo/id${params.id}.json`)
          .then(data => {
+            //console.log('this is data: ', data)
             setProduct(data)
          })
          .catch(error => console.log('Could not load product details', error))
@@ -28,8 +29,7 @@ export default function ProductDetails(props) {
    return (
       <div className="product-details-layout">
          <div>
-            <h2>this is {product.name}</h2>
-            <p>{ product.price}</p>
+            <h2>{product.name}</h2>
             <img
                src={product.image}
                width="125"
