@@ -4,10 +4,12 @@ const CART = [
       id: 1,
       image: 'https://res.cloudinary.com/dbfn5lnvx/image/upload/…07769454/react-tutorial/products/final/cheese.png',
       name: 'Cheese',
+      nutrition: {carbs: 1.3, fat: 33, protein: 25, salt: 1},
       price: 10,
       price_id: 'price_1HuavSGuhXEITAut56IgndJf',
+      storage: 'Store in a cool place (between 5°C and 15°C)',
    },
-/*    {
+   /*    {
       description: '200ml milk bottle',
       id: 2,
       image: 'https://res.cloudinary.com/dbfn5lnvx/image/upload/…1607769454/react-tutorial/products/final/milk.png',

@@ -37,11 +37,6 @@
       "kcd-scripts": "^12.3.0",
       "react-test-renderer": "^18.2.0"
    },
-   "babel": {
-      "presets": [
-         "kcd-scripts/babel"
-      ]
-   },
    "eslintConfig": {
       "extends": "./node_modules/kcd-scripts/eslint.js",
       "rules": {

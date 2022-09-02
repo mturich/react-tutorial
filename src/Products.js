@@ -23,6 +23,7 @@ export default function Products(props) {
          <p>Take a look at our products</p>
          <div className="products-grid">
             {loading && <Loader />}
+
             {products.map(product => {
                return (
                   <Product

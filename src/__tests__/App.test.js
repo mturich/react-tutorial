@@ -11,6 +11,8 @@ import {rest} from 'msw'
 import App from '../App.js'
 import CART from '../shared/cart.js'
 
+console.log('this is the cart obj ', CART[0])
+
 const server = setupServer(
    // res - response, req - request, ctx - context
    rest.get(
@@ -22,7 +24,7 @@ const server = setupServer(
    rest.get(
       'https://react-tutorial-demo.firebaseio.com/productinfo/id1.json',
       (req, res, ctx) => {
-         return res(ctx.json(CART))
+         return res(ctx.json(CART[0]))
       },
    ),
 )
@@ -72,19 +74,18 @@ test('tests the Product rendering by intercepting FETCH call', async () => {
    expect(addCheeseToCart).toBeInTheDocument()
 
    user.click(addCheeseToCart)
-   expect(await screen.findByRole('link', {name: /(1)/i})).toHaveTextContent(
-      /1/i,
-   )
+   expect(await screen.findByRole('link', {name: /(1)/i})).toBeInTheDocument()
 
    user.click(addCheeseToCart)
-   expect(await screen.findByRole('link', {name: /(2)/i})).toHaveTextContent(
-      /2/i,
-   )
+   expect(await screen.findByRole('link', {name: /(2)/i})).toBeInTheDocument()
 
-   const prodDetails = screen.getByRole('img', {name: /Cheese/i})
-   user.click(prodDetails)
-
+   const prodDetailLink = screen.getByRole('link', {name: /cheese/i})
+   user.click(prodDetailLink)
+   expect(await screen.findByText(/Details/)).toBeInTheDocument()
    screen.debug()
+   const toCart = screen.getByRole('button', {name: /10/i})
+   user.click(toCart)
+   expect(await screen.findByRole('link', {name: /3/i})).toBeInTheDocument()
 
    user.click(cart)
    expect(await screen.findByText('Your Cart')).toBeInTheDocument()
