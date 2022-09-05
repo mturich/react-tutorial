@@ -55,7 +55,7 @@ exports[`5: test ProductInfoPage: nutrition 1`] = `
 </table>
 `;
 
-exports[`6: tests if Cart component is working properly: cart 1`] = `
+exports[`7: tests if Cart component is working properly if NOT empty: cart 1`] = `
 <table
   class="table table-cart"
 >
