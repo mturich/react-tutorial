@@ -20,7 +20,6 @@ export default function ProductDetails(props) {
    useEffect(() => {
       get(`productinfo/id${params.id}.json`)
          .then(data => {
-            //console.log('this is data: ', data)
             setProduct(data)
          })
          .catch(error => console.log('Could not load product details', error))

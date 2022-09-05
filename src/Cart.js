@@ -1,20 +1,23 @@
-import { useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import Input from './Input.js';
-import Button from './Button.js';
+import {useState} from 'react'
+import {loadStripe} from '@stripe/stripe-js'
+import Input from './Input.js'
+import Button from './Button.js'
 
 // TODO: Replace with your own publishable key
 const stripeLoadedPromise = loadStripe(
-   'pk_test_51LYDlMGSORg56XufAuLQAcUuWYgqHjkZTSx0fLYs4EecMc6bXVtwd4qnkJEGKP1u7aXAi6I45t6f8IJRzoLtGiDk00ABSxWOKu'
-);
+   'pk_test_51LYDlMGSORg56XufAuLQAcUuWYgqHjkZTSx0fLYs4EecMc6bXVtwd4qnkJEGKP1u7aXAi6I45t6f8IJRzoLtGiDk00ABSxWOKu',
+)
 
-export default function Cart({ cart }) {
-   const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+export default function Cart({cart}) {
+   const totalPrice = cart.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0,
+   )
 
-   const [email, setEmail] = useState('');
+   const [email, setEmail] = useState('')
 
    function handleFormSubmit(event) {
-      event.preventDefault();
+      event.preventDefault()
 
       const lineItems = cart.map(product => {
          // override price_id
@@ -23,13 +26,17 @@ export default function Cart({ cart }) {
             2: 'price_1LYDrYGSORg56XufrwA2RJd0', // milk
             3: 'price_1LYDr3GSORg56XufBG4SsgoZ', // tomato
             4: 'price_1LcaHZGSORg56XufV2wUsfnn', // Pineapple
-         };
-         const striveObject = { price: customPriceId[product.id], quantity: product.quantity };
+         }
+         const stripeObject = {
+            price: customPriceId[product.id],
+            quantity: product.quantity,
+         }
 
-         return striveObject;
-      });
+         return stripeObject
+      })
 
       stripeLoadedPromise.then(stripe => {
+        console.log(stripe)
          stripe
             .redirectToCheckout({
                mode: 'payment',
@@ -40,31 +47,33 @@ export default function Cart({ cart }) {
             })
             .then(response => {
                // this will only log if the redirect did not work
-               console.log(response.error);
+               console.log(response.error)
             })
             .catch(error => {
                // wrong API key? you will see the error message here
-               console.log(error);
-            });
-      });
+               console.log(error)
+            })
+      })
    }
 
    return (
-      <div className='cart-layout'>
+      <div className="cart-layout">
          <div>
             <h1>Your Cart</h1>
-            {cart.length === 0 && <p>You have not added any product to your cart yet.</p>}
+            {cart.length === 0 && (
+               <p>You have not added any product to your cart yet.</p>
+            )}
             {cart.length > 0 && (
                <>
-                  <table className='table table-cart'>
+                  <table className="table table-cart">
                      <thead>
                         <tr>
-                           <th width='25%' className='th-product'>
+                           <th width="25%" className="th-product">
                               Product
                            </th>
-                           <th width='20%'>Unit price</th>
-                           <th width='10%'>Quanity</th>
-                           <th width='25%'>Total</th>
+                           <th width="20%">Unit price</th>
+                           <th width="10%">Quanity</th>
+                           <th width="25%">Total</th>
                         </tr>
                      </thead>
                      <tbody>
@@ -72,47 +81,55 @@ export default function Cart({ cart }) {
                            return (
                               <tr key={product.id}>
                                  <td>
-                                    <img src={product.image} width='30' height='30' alt='' />{' '}
+                                    <img
+                                       src={product.image}
+                                       width="30"
+                                       height="30"
+                                       alt=""
+                                    />{' '}
                                     {product.name}
                                  </td>
                                  <td>${product.price}</td>
                                  <td>{product.quantity}</td>
                                  <td>
-                                    <strong>${product.price * product.quantity}</strong>
+                                    <strong>
+                                       ${product.price * product.quantity}
+                                    </strong>
                                  </td>
                               </tr>
-                           );
+                           )
                         })}
                      </tbody>
                      <tfoot>
                         <tr>
-                           <th colSpan='2'></th>
-                           <th className='cart-highlight'>Total</th>
-                           <th className='cart-highlight'>${totalPrice}</th>
+                           <th colSpan="2"></th>
+                           <th className="cart-highlight">Total</th>
+                           <th className="cart-highlight">${totalPrice}</th>
                         </tr>
                      </tfoot>
                   </table>
-                  <form className='pay-form' onSubmit={handleFormSubmit}>
+                  <form className="pay-form" onSubmit={handleFormSubmit}>
                      <p>
-                        Enter your email and then click on pay and your products will be delivered
-                        to you on the same day!
+                        Enter your email and then click on pay and your products
+                        will be delivered to you on the same day!
                         <br />
                         <em>
-                           Enter your own Stripe Publishable Key in Cart.js for the checkout to work
+                           Enter your own Stripe Publishable Key in Cart.js for
+                           the checkout to work
                         </em>
                      </p>
                      <Input
-                        placeholder='Email'
+                        placeholder="Email"
                         onChange={event => setEmail(event.target.value)}
                         value={email}
-                        type='email'
+                        type="email"
                         required
                      />
-                     <Button type='submit'>Pay</Button>
+                     <Button type="submit">Pay</Button>
                   </form>
                </>
             )}
          </div>
       </div>
-   );
+   )
 }
