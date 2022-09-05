@@ -1,6 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tests the Product rendering by intercepting FETCH call: cart 1`] = `
+exports[`5: test ProductInfoPage: nutrition 1`] = `
+<table
+  class="table table-nutrition"
+>
+  <thead>
+    <tr>
+      <th>
+        Nutrient
+      </th>
+      <th>
+        Value
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Protein
+      </td>
+      <td>
+        25
+        g
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Carbohydrates
+      </td>
+      <td>
+        1.3
+        g
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Fat
+      </td>
+      <td>
+        33
+        g
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Salt
+      </td>
+      <td>
+        1
+        g
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`6: tests if Cart component is working properly: cart 1`] = `
 <table
   class="table table-cart"
 >
@@ -74,60 +129,5 @@ exports[`tests the Product rendering by intercepting FETCH call: cart 1`] = `
       </th>
     </tr>
   </tfoot>
-</table>
-`;
-
-exports[`tests the Product rendering by intercepting FETCH call: nutrition 1`] = `
-<table
-  class="table table-nutrition"
->
-  <thead>
-    <tr>
-      <th>
-        Nutrient
-      </th>
-      <th>
-        Value
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        Protein
-      </td>
-      <td>
-        25
-        g
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Carbohydrates
-      </td>
-      <td>
-        1.3
-        g
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Fat
-      </td>
-      <td>
-        33
-        g
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Salt
-      </td>
-      <td>
-        1
-        g
-      </td>
-    </tr>
-  </tbody>
 </table>
 `;
