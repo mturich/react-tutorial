@@ -2,7 +2,7 @@
 
 exports[`5: test ProductInfoPage: nutrition 1`] = `
 <table
-  class="table table-nutrition"
+  class=table table-nutrition
 >
   <thead>
     <tr>
@@ -57,28 +57,28 @@ exports[`5: test ProductInfoPage: nutrition 1`] = `
 
 exports[`7: tests if Cart component is working properly if NOT empty: cart 1`] = `
 <table
-  class="table table-cart"
+  class=table table-cart
 >
   <thead>
     <tr>
       <th
-        class="th-product"
-        width="25%"
+        class=th-product
+        width=25%
       >
         Product
       </th>
       <th
-        width="20%"
+        width=20%
       >
         Unit price
       </th>
       <th
-        width="10%"
+        width=10%
       >
         Quanity
       </th>
       <th
-        width="25%"
+        width=25%
       >
         Total
       </th>
@@ -88,10 +88,10 @@ exports[`7: tests if Cart component is working properly if NOT empty: cart 1`] =
     <tr>
       <td>
         <img
-          alt=""
-          height="30"
-          src="https://res.cloudinary.com/dbfn5lnvx/image/upload/…07769454/react-tutorial/products/final/cheese.png"
-          width="30"
+          alt=
+          height=30
+          src=https://res.cloudinary.com/dbfn5lnvx/image/upload/…07769454/react-tutorial/products/final/cheese.png
+          width=30
         />
          
         Cheese
@@ -114,15 +114,15 @@ exports[`7: tests if Cart component is working properly if NOT empty: cart 1`] =
   <tfoot>
     <tr>
       <th
-        colspan="2"
+        colspan=2
       />
       <th
-        class="cart-highlight"
+        class=cart-highlight
       >
         Total
       </th>
       <th
-        class="cart-highlight"
+        class=cart-highlight
       >
         $
         30

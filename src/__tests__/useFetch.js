@@ -5,9 +5,9 @@ test('returns logged in user', () => {
    const {result} = renderHook(() => useFetch())
    expect(result.current).toMatchInlineSnapshot(`
       Object {
-        "get": [Function],
-        "loading": true,
-        "post": [Function],
+        get: [Function],
+        loading: true,
+        post: [Function],
       }
    `)
 })

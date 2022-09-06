@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 import {loadStripe} from '@stripe/stripe-js'
 import Input from './Input.js'
 import Button from './Button.js'
@@ -36,7 +36,7 @@ export default function Cart({cart}) {
       })
 
       stripeLoadedPromise.then(stripe => {
-        console.log(stripe)
+         console.log(stripe)
          stripe
             .redirectToCheckout({
                mode: 'payment',
